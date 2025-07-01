@@ -3,6 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { MaterialIcons, Ionicons, FontAwesome5, Entypo } from '@expo/vector-icons';
 
 export default function Home({ navigation }) {
+  const handleCerrarSesion = () => {
+    navigation.replace('Login');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -25,6 +29,10 @@ export default function Home({ navigation }) {
         <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('Perfil')}>
           <FontAwesome5 name="user-circle" size={28} color="#ff4a1c" />
           <Text style={styles.tabText}>Perfil</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.tab} onPress={handleCerrarSesion}>
+          <MaterialIcons name="logout" size={28} color="#ff4a1c" />
+          <Text style={styles.tabText}>Cerrar sesión</Text>
         </TouchableOpacity>
       </View>
     </View>
