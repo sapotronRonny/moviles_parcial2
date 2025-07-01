@@ -1,49 +1,50 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import { MaterialIcons, FontAwesome5, Entypo } from '@expo/vector-icons';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { MaterialIcons, Ionicons, FontAwesome5, Entypo } from '@expo/vector-icons';
 
-// Cambia la función a mayúscula: Home
 export default function Home({ navigation }) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Dashboard</Text>
-      <View style={styles.cardRow}>
-        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Noticias')}>
-          <MaterialIcons name="article" size={40} color="#ff4a1c" />
-          <Text style={styles.cardText}>Noticias</Text>
+    <View style={styles.container}>
+      <View style={styles.content}>
+        <Text style={styles.title}>Página de Inicio</Text>
+        {/* Aquí puedes poner el contenido principal */}
+      </View>
+      <View style={styles.bottomBar}>
+        <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('home')}>
+          <Ionicons name="home" size={28} color="#ff4a1c" />
+          <Text style={styles.tabText}>Inicio</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Perfil')}>
-          <FontAwesome5 name="user-alt" size={40} color="#ff4a1c" />
-          <Text style={styles.cardText}>Perfil</Text>
+        <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('Noticias')}>
+          <MaterialIcons name="article" size={28} color="#ff4a1c" />
+          <Text style={styles.tabText}>Noticias</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('Configuraciones')}>
+          <Entypo name="cog" size={28} color="#ff4a1c" />
+          <Text style={styles.tabText}>Configuraciones</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('Perfil')}>
+          <FontAwesome5 name="user-circle" size={28} color="#ff4a1c" />
+          <Text style={styles.tabText}>Perfil</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.cardRow}>
-        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Configuración')}>
-          <Entypo name="cog" size={40} color="#ff4a1c" />
-          <Text style={styles.cardText}>Configuración</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Login')}>
-          <MaterialIcons name="logout" size={40} color="#ff4a1c" />
-          <Text style={styles.cardText}>Cerrar Sesión</Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flexGrow: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#f9f8ee', padding: 20 },
+  container: { flex: 1, backgroundColor: '#f9f8ee' },
+  content: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   title: { fontSize: 32, fontWeight: 'bold', color: '#ff4a1c', marginBottom: 30 },
-  cardRow: { flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginBottom: 24 },
-  card: {
-    backgroundColor: '#fff',
-    borderRadius: 16,
-    padding: 30,
+  bottomBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: 10,
-    flex: 1,
-    elevation: 4,
+    height: 70,
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#eee',
+    elevation: 10,
   },
-  cardText: { marginTop: 12, fontSize: 18, fontWeight: 'bold', textAlign: 'center', color: '#333' },
-});
+  tab: { alignItems: 'center', justifyContent: 'center', flex: 1 },
+  tabText: { fontSize: 12, color: '#ff4a1c', marginTop: 2 },
+  });
