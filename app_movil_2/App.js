@@ -1,13 +1,13 @@
-// App.js
-import React from 'react';
-import Router from './routes/router';
+import { UserProvider} from "./contexts/UserContext";
+import Router from "./routes/router";
 
 export default function App() {
-  return <Router />;
+  return (
+    <UserProvider>
+      <Router />
+    </UserProvider>
+  );
 }
-
-
-
 
 
 // import { StatusBar } from 'expo-status-bar';

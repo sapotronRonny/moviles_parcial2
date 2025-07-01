@@ -1,10 +1,9 @@
-// routes/router.js
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from '../views/login';
-import Registro from '../views/registro'; // Asegúrate de que la ruta sea correcta
-// import Registro from '../views/Registro';
+import Registro from '../views/registro';
+import Home from '../views/home';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,24 +13,25 @@ const Router = () => {
       <Stack.Navigator
         initialRouteName="Login"
         screenOptions={{
-          headerStyle: {
-            backgroundColor: '#ff4a1c', // 🟧 Fondo del header
-          },
-          headerTintColor: '#fff',      // ⚪ Color de la letra y botones
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          headerStyle: { backgroundColor: '#ff4a1c' },
+          headerTintColor: '#fff',
+          headerTitleStyle: { fontWeight: 'bold' },
         }}
       >
         <Stack.Screen
           name="Login"
           component={Login}
-          options={{ title: 'Login' }} // Puedes cambiar a "Iniciar sesión"
+          options={{ title: 'Login' }}
         />
         <Stack.Screen
           name="Registro"
           component={Registro}
           options={{ title: 'Registro' }}
+        />
+        <Stack.Screen
+          name="home"
+          component={Home}
+          options={{ title: 'Bienvenido' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -39,5 +39,3 @@ const Router = () => {
 };
 
 export default Router;
-
-

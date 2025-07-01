@@ -23,7 +23,7 @@ const provincias = [
   "Santa Ana", "Sucre", "Tosagua", "24 de Mayo"
 ];
 
-export default function RegisterScreen() {
+export default function Registro() {
   const navigation = useNavigation();
   const [nombre, setNombre] = useState('');
   const [correo, setCorreo] = useState('');
@@ -73,7 +73,7 @@ export default function RegisterScreen() {
       return;
     }
     ToastAndroid.show('Registro exitoso', ToastAndroid.LONG);
-    navigation.replace('Login');
+    navigation.replace('home');
   };
 
   return (
