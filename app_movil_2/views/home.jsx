@@ -22,7 +22,7 @@ export default function Home({ navigation }) {
           <Entypo name="cog" size={40} color="#ff4a1c" />
           <Text style={styles.cardText}>Configuración</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('CerrarSesion')}>
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Login')}>
           <MaterialIcons name="logout" size={40} color="#ff4a1c" />
           <Text style={styles.cardText}>Cerrar Sesión</Text>
         </TouchableOpacity>
